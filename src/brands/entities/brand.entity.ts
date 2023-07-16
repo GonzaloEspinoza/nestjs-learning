@@ -1,5 +1,5 @@
 export class Brand {
-    id:string;
+    id:number;
     name:string;
     
     createdAt: number;

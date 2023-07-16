@@ -1,12 +1,12 @@
 import {IsNumber, IsString} from 'class-validator';
 
 export class CreateCarDto {
-    @IsNumber()
+    @IsNumber()   // this a decorator
     id2:string
 
-    @IsString()
+    @IsString()  // this a decorator
     readonly brand:string;
 
-    @IsString()
+    @IsString()  // this a decorator
     readonly model:string;
 }

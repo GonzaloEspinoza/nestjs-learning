@@ -9,7 +9,7 @@ export class BrandsService {
 
   private newBrands:Brand[] = [
     {
-      id:'1',
+      id:1,
       name:'toyota',
       createdAt:new Date().getTime()
     }
@@ -18,7 +18,7 @@ export class BrandsService {
   create(createBrandDto: CreateBrandDto) {
 
     const brand:Brand={
-      id:'2',
+      id:2,
       name:createBrandDto.name,
       createdAt:new Date().getTime()
     }
@@ -33,11 +33,29 @@ export class BrandsService {
   }
 
   findOne(id: number) {
-    return `This action returns a #${id} brand`;
+
+    const data = this.newBrands.find(brand=>brand.id===id);
+    if(!data){
+      return {
+        status:1,
+
+        message:`this id brands no fount #${id}`}
+    }
+    return data
   }
 
   update(id: number, updateBrandDto: UpdateBrandDto) {
-    return `This action updates a #${id} brand`;
+
+    const data = this.newBrands.find(brand=>brand.id===id);
+    if(!data){
+      return {status:0, message:'#id fonud'}
+    }
+
+    data.name=updateBrandDto.name;
+    this.newBrands.find(brand=>{
+      console.log('datos actulizados')
+      return `This action updates a #${id} brand`;
+    })
   }
 
   remove(id: number) {
